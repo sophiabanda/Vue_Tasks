@@ -6,11 +6,14 @@ const emit = defineEmits<{
 }>()
 
 const newTask = ref("");
+const error = ref("");
 
 function formSubmitted() {
   if (newTask.value.trim()) {
     emit("addTask", newTask.value.trim());
     newTask.value ="";
+  } else {
+    error.value = "Task cannot be empty!"
   }
 }
 </script>
@@ -18,7 +21,15 @@ function formSubmitted() {
 <template>
      <form @submit.prevent="formSubmitted">
       <label>New Task</label>
-      <input v-model="newTask" name="newTask">
+      <input 
+      v-model="newTask" 
+      name="newTask" 
+      :aria-invalid="!!error || undefined"
+      @input="error = ' '"
+      >
+      <small v-if="error" id="invalid-helper">
+        {{ error }}
+      </small>
       <div class="button-container">
         <button>Add</button>
       </div>

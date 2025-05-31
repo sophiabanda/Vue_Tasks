@@ -52,5 +52,8 @@ function addTask(newTask: string) {
   append .value. The state variable is essentially an object wrapper around
   a primitive. Prevent default action by appending .prevent on submit action -->
 <!-- Preferred way in vue to pass state up is to emit an event -->
+<!-- Build into vue is a v-if directive! Anytime you want an attribute 
+ to have an expression inside of it, or reference state variables you must use a colon.
+ It otherwise will register as a string -->
 
 
