@@ -9,7 +9,7 @@ const newTask = ref("");
 
 function formSubmitted() {
   if (newTask.value.trim()) {
-    emit("addTask", newTask.value);
+    emit("addTask", newTask.value.trim());
     newTask.value ="";
   }
 }
