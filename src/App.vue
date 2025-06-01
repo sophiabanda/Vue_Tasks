@@ -25,6 +25,9 @@ function addTask(newTask: string) {
     <!-- @ sign here allows us to tap into the event being emitted from 
      TaskForm.vue. If this Task form emits the add task event, 
      call this function, use data -->
+     <h3 v-if="!tasks.length">Add a task to get started.</h3>
+     <h3 v-else>0 / {{ tasks.length }} tasks completed.</h3>
+    <!-- Conditionally render the h3 with v-if -->
      <TaskList :tasks="tasks"/>
   </main>
 </template>
