@@ -3,6 +3,7 @@ import type { TaskFilter } from '../types';
 
 const props = defineProps<{
     filter: TaskFilter;
+    //accessing the filter value which is of type TaskFilter
     currentFilter: TaskFilter;
 }>();
 

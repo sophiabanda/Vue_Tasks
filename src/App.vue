@@ -7,7 +7,7 @@ import type { Task, TaskFilter } from "./types";
 
 const message = ref("Tasks App");
 const tasks = ref<Task[]>([]);
-// 'typed' in separate file
+// 'typed' in separate file. Every type will be its own export statement
 const filter = ref<TaskFilter>("all");
 
 const totalDone = computed(() => tasks
