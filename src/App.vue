@@ -21,13 +21,20 @@ function addTask(newTask: string) {
     id: crypto.randomUUID(),
     title: newTask,
     done: false
-  })
+  });
 }
 
 function toggleDone(id: string) {
   const task = tasks.value.find((task) => task.id === id);
   if (task) {
     task.done = !task.done
+  }
+}
+
+function removeTask(id: string) {
+  const index = tasks.value.findIndex((task) => task.id === id);
+  if (index !== -1) {
+    tasks.value.splice(index, 1)
   }
 }
 
@@ -43,7 +50,7 @@ function toggleDone(id: string) {
      <h3 v-if="!tasks.length">Add a task to get started.</h3>
      <h3 v-else>{{  totalDone }} / {{ tasks.length }} tasks completed.</h3>
     <!-- Conditionally render the h3 with v-if -->
-     <TaskList :tasks @toggle-done="toggleDone"/>
+     <TaskList :tasks @toggle-done="toggleDone" @remove-task="removeTask"/>
   </main>
 </template>
 

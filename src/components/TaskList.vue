@@ -6,7 +6,8 @@ const props = defineProps<{
 }>();
 
 const emits = defineEmits<{
-    toggleDone: [id: string]
+    toggleDone: [id: string];
+    removeTask: [id: string];
 }>();
 
 </script>
@@ -22,7 +23,7 @@ const emits = defineEmits<{
                 >
                 <span :class="{ done: task.done }">{{ task.title }}</span>
             </label>
-            <button class="outline">Remove</button>
+            <button @click="emits('removeTask', task.id)" class="outline">Remove</button>
         </article>
     </div>
 </template>
