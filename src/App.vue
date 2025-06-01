@@ -5,6 +5,7 @@ import type { Task } from "./types";
 
 const message = ref("Tasks App");
 const tasks = ref<Task[]>([]);
+// 'typed' in separate file
 
 function addTask(newTask: string) {
   tasks.value.push({
@@ -20,7 +21,9 @@ function addTask(newTask: string) {
   <main>
     <h1>{{ message }}</h1>
     <TaskForm @add-task="addTask"/>
-    <!-- If this Task form emits the add task event, call this function, use data -->
+    <!-- @ sign here allows us to tap into the event being emitted from 
+     TaskForm.vue. If this Task form emits the add task event, 
+     call this function, use data -->
      <h3>There are {{ tasks.length }} tasks to complete.</h3>
   </main>
 </template>

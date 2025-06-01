@@ -25,7 +25,7 @@ function formSubmitted() {
       v-model="newTask" 
       name="newTask" 
       :aria-invalid="!!error || undefined"
-      @input="error = ' '"
+      @input="error = ''"
       >
       <small v-if="error" id="invalid-helper">
         {{ error }}
@@ -34,5 +34,4 @@ function formSubmitted() {
         <button>Add</button>
       </div>
     </form>
-    <h3>{{ newTask }}</h3>
 </template>
