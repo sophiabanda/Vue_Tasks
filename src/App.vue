@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import TaskForm from "./components/TaskForm.vue";
+import TaskList from "./components/TaskList.vue"
 import type { Task } from "./types";
 
 const message = ref("Tasks App");
@@ -24,7 +25,7 @@ function addTask(newTask: string) {
     <!-- @ sign here allows us to tap into the event being emitted from 
      TaskForm.vue. If this Task form emits the add task event, 
      call this function, use data -->
-     <h3>There are {{ tasks.length }} tasks to complete.</h3>
+     <TaskList :tasks="tasks"/>
   </main>
 </template>
 
